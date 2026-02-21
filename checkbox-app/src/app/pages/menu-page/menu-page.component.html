@@ -1,0 +1,31 @@
+<app-header
+  [menuTitle]="activeMenu()?.title ?? ''"
+  [count]="selectedCount()"
+  [sum]="selectedSum()"
+/>
+
+<div class="layout">
+  <aside class="sidebar">
+    <button
+      class="menu-btn"
+      *ngFor="let m of menus"
+      type="button"
+      (click)="setActive(m.id)"
+      [class.active]="m.id === activeMenuId()"
+    >
+      {{ m.title }}
+    </button>
+  </aside>
+
+  <main class="content" *ngIf="activeMenu() as menu">
+    <label class="item" *ngFor="let it of menu.items">
+      <input
+        type="checkbox"
+        [checked]="isChecked(it.id)"
+        (change)="toggle(it.id)"
+      />
+      <span class="name">{{ it.label }}</span>
+      <span class="value">Value: {{ it.value }}</span>
+    </label>
+  </main>
+</div>
