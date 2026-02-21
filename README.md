@@ -2,11 +2,11 @@
 
 ## Чтобы запустить проект локально, запустите команды
 
-cd checkbox-app
+1. cd checkbox-app
 
-npm install
+2. npm install
 
-ng serve
+3. ng serve
 
 ## Онлайн версия
 
